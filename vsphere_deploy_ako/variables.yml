@@ -39,3 +39,4 @@ NODE_NET:
 CLUSTER_NAME: ocp-cluster01
 CNI: openshift      #calico|canal|flannel|openshift|antrea|ncp
 KUBECONFIG_PATH: kubeconfig/ocp-cluster
+CONTEXT:
