@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  connection: local
+  collections:
+    - kubernetes.core
+  vars_files:
+    variables.yml
+  tasks:
+    - helm_repository:
+        name: ako
+        repo_url: "https://projects.registry.vmware.com/chartrepo/ako"
+      become: false
+      name: Add AKO incubator chart repo
+    - name: Deploy AKO incubator chart with values loaded from template
+      helm:
+        name: ako
+        chart_ref: ako/ako
+        chart_version: 1.5.1
+        create_namespace: true
+        kubeconfig: "{{ KUBECONFIG_PATH }}"
+        context: "{{ CONTEXT }}"
+        release_namespace: avi-system
+        values: "{{ lookup('template', '../templates/values.yml.j2') | from_yaml }}"
+      become: false

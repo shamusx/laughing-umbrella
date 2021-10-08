@@ -1,0 +1,41 @@
+---
+# --------------------------------------------------------------------
+# Management Variables
+# Description: This are variables used for any type of ansible deployment.
+# --------------------------------------------------------------------
+
+# Controller Credentials
+AVI_CREDENTIALS:
+  controller: "{{ CONTROLLER_CLUSTER_IP }}" # This can be either cluster ip or the ip of the leader controller.
+  username: "admin"
+  password: "VMware1!"
+  api_version: "20.1.6"
+
+# --------------------------------------------------------------------
+# Required Variables / Controller Deployments
+# Description: This are the main variables required for controller deployments.
+# --------------------------------------------------------------------
+
+# Cluster IP for Avi Controller
+CONTROLLER_CLUSTER_IP: x.x.x.x
+
+# --------------------------------------------------------------------
+# Avi Specific Values
+# --------------------------------------------------------------------
+
+CC_CLOUDNAME: vmware
+SEG_NAME: ocp-seg
+VIP_NET:
+  network_name: "PG-VIP"
+  cidr: 10.206.40.0/22
+NODE_NET:
+  network_name: "PG-NODES"
+  cidr: 100.66.24.0/21
+
+# --------------------------------------------------------------------
+# AKO Values.yml required inputs
+# --------------------------------------------------------------------
+
+CLUSTER_NAME: ocp-cluster01
+CNI: openshift      #calico|canal|flannel|openshift|antrea|ncp
+KUBECONFIG_PATH: kubeconfig/ocp-cluster
