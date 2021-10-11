@@ -17,26 +17,27 @@ AVI_CREDENTIALS:
 # --------------------------------------------------------------------
 
 # Cluster IP for Avi Controller
-CONTROLLER_CLUSTER_IP: x.x.x.x
+CONTROLLER_CLUSTER_IP: 1.1.1.1
 
 # --------------------------------------------------------------------
 # Avi Specific Values
 # --------------------------------------------------------------------
 
-CC_CLOUDNAME: vmware
-SEG_NAME: ocp-seg
+CC_CLOUDNAME: vmware-cloud
+SEG_NAME: tkg-cl01
 VIP_NET:
-  network_name: "PG-VIP"
-  cidr: 10.206.40.0/22
+  network_name: "pg-vip"
+  cidr: 10.20.20.0/22
 NODE_NET:
-  network_name: "PG-NODES"
-  cidr: 100.66.24.0/21
+  network_name: "pg-node-net"
+  cidr: 100.66.0.0/21
+TENANT: tkg-cl01
 
 # --------------------------------------------------------------------
 # AKO Values.yml required inputs
 # --------------------------------------------------------------------
 
-CLUSTER_NAME: ocp-cluster01
-CNI: openshift      #calico|canal|flannel|openshift|antrea|ncp
-KUBECONFIG_PATH: kubeconfig/ocp-cluster
-CONTEXT:
+CLUSTER_NAME: tkg-cl01
+CNI: antrea      #calico|canal|flannel|openshift|antrea|ncp
+KUBECONFIG_PATH: /opt/avi/.kube/config
+CONTEXT: cl01-admin@cl01
