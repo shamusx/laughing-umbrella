@@ -15,10 +15,10 @@
       helm:
         name: ako
         chart_ref: ako/ako
-        chart_version: 1.5.1
+        chart_version: "{{ AKO_VERSION }}"
         create_namespace: true
         kubeconfig: "{{ KUBECONFIG_PATH }}"
         context: "{{ CONTEXT }}"
         release_namespace: avi-system
-        values: "{{ lookup('template', '../templates/values.yml.j2') | from_yaml }}"
+        values: "{{ lookup('template', './templates/' + AKO_VERSION }} + '.yml.j2') | from_yaml }}"
       become: false
