@@ -20,5 +20,5 @@
         kubeconfig: "{{ KUBECONFIG_PATH }}"
         context: "{{ CONTEXT }}"
         release_namespace: avi-system
-        values: "{{ lookup('template', './templates/' + AKO_VERSION }} + '.yml.j2') | from_yaml }}"
+        values: "{{ lookup('template', './templates/' + AKO_VERSION + '.yml.j2') | from_yaml }}"
       become: false

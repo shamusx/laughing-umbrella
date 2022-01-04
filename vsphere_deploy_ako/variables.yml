@@ -41,4 +41,10 @@ CLUSTER_NAME: tkg-cl01
 CNI: antrea      #calico|canal|flannel|openshift|antrea|ncp
 KUBECONFIG_PATH: /opt/avi/.kube/config
 CONTEXT: cl01-admin@cl01
+
+# --------------------------------------------------------------------
+# AKO Values.yml Optional inputs
+# --------------------------------------------------------------------
+
 AKO_VERSION: 1.6.1
+defaultIngController: true
